@@ -1,6 +1,26 @@
 <div
-  class="container d-flex justify-content-center align-items-center"
+  class="d-flex justify-content-center align-items-center positive-relative"
+  [ngClass]="{
+    'model-3-gradient': selectedModel.cssClass === 'model-3-gradient',
+    'model-2-gradient': selectedModel.cssClass === 'model-2-gradient',
+    'model-1-gradient': selectedModel.cssClass === 'model-1-gradient'
+  }"
   style="height: 100%"
 >
-  working
+  <div class="position-absolute model-name">
+    <span>{{ selectedModel.name }}</span>
+  </div>
+  <canvas class="webgl"></canvas>
+  <div class="position-absolute arrow-btn-group">
+    <fa-icon
+      class="fa-2x btn-effect me-1"
+      [icon]="faArrowCircleLeft"
+      (click)="changeSelectedModel(false)"
+    ></fa-icon>
+    <fa-icon
+      class="fa-2x btn-effect ms-1"
+      [icon]="faArrowCircleRight"
+      (click)="changeSelectedModel(true)"
+    ></fa-icon>
+  </div>
 </div>
